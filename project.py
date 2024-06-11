@@ -190,7 +190,7 @@ name = st.text_input("Masukkan Nama anda", "John Doe")
 # Minta pengguna memasukkan nilai untuk setiap fitur
 input_data = []
 for feature, example in zip(feature_names, example_values):
-    value = st.number_input(f'Masukan nilai {feature} mu', value=example)
+    value = st.number_input(f'Masukan nilai {feature} anda', value=example)
     input_data.append(value)
 
 # Membuat DataFrame dari data input dengan nama fitur yang sama
