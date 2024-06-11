@@ -195,3 +195,29 @@ if (prediction[0] == 0):
   print('The person is not diabetic')
 else:
   print('The person is diabetic')
+  
+  
+# In[]
+
+import streamlit as st
+
+# Misalkan ini adalah fitur yang digunakan untuk melatih StandardScaler
+feature_names = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
+
+# Minta input dari pengguna
+name = st.text_input("Please enter your name")
+input_data = (5,166,72,19,175,25.8,0.587,51)  # Ini harus diganti dengan input pengguna
+
+# Membuat DataFrame dari data input dengan nama fitur yang sama
+input_data_df = pd.DataFrame([input_data], columns=feature_names)
+
+# Sekarang, gunakan DataFrame ini untuk transformasi
+std_data = scaler.fit_transform(input_data_df)
+
+prediction = classifier.predict(std_data)
+
+if (prediction[0] == 0):
+  st.write(f'{name} is not diabetic')
+else:
+  st.write(f'{name} is diabetic')
+# %%
