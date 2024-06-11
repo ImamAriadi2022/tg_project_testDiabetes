@@ -179,8 +179,7 @@ print('Accuracy score of the test data : ', test_data_accuracy)
 import streamlit as st
 
 # Misalkan ini adalah fitur yang digunakan untuk melatih StandardScaler
-feature_names = ['Pregnancy', 'Glucose', 'bloodPressure', 'skinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
-label_name = ['Kehamilan', 'Glukosa', 'Tekanan darah', 'Ketebalan Kulit', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Usia']
+feature_names = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
 
 # Ini adalah contoh nilai untuk setiap fitur
 example_values = [10, 180, 85, 35, 0, 35.0, 0.627, 60]
@@ -191,7 +190,7 @@ name = st.text_input("Masukkan Nama anda", "John Doe")
 # Minta pengguna memasukkan nilai untuk setiap fitur
 input_data = []
 for feature, example in zip(feature_names, example_values):
-    value = st.number_input(f'Masukan {feature} anda', value=example)
+    value = st.number_input(f'Masukan nilai {feature} mu', value=example)
     input_data.append(value)
 
 # Membuat DataFrame dari data input dengan nama fitur yang sama
