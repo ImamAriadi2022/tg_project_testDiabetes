@@ -182,7 +182,7 @@ import streamlit as st
 feature_names = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
 
 # Ini adalah contoh nilai untuk setiap fitur
-example_values = [10,101,76,48,180,32.9,0.171,63]
+example_values = [10, 180, 85, 35, 0, 35.0, 0.627, 60]
 
 # Minta input dari pengguna
 name = st.text_input("Please enter your name", "John Doe")
