@@ -176,17 +176,16 @@ print('Accuracy score of the test data : ', test_data_accuracy)
 
 # In[45]:
 
+# Misalkan ini adalah fitur yang digunakan untuk melatih StandardScaler
+feature_names = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
 
 input_data = (5,166,72,19,175,25.8,0.587,51)
 
-# changing the input_data to numpy array
-input_data_as_numpy_array = np.asarray(input_data)
+# Membuat DataFrame dari data input dengan nama fitur yang sama
+input_data_df = pd.DataFrame([input_data], columns=feature_names)
 
-# reshape the array as we are predicting for one instance
-input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
-
-# standardize the input data
-std_data = scaler.transform(input_data_reshaped)
+# Sekarang, gunakan DataFrame ini untuk transformasi
+std_data = scaler.fit_transform(input_data_df)
 print(std_data)
 
 prediction = classifier.predict(std_data)
@@ -196,4 +195,3 @@ if (prediction[0] == 0):
   print('The person is not diabetic')
 else:
   print('The person is diabetic')
-
