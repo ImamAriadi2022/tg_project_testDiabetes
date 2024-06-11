@@ -174,29 +174,6 @@ test_data_accuracy = accuracy_score(X_test_prediction, Y_test)
 print('Accuracy score of the test data : ', test_data_accuracy)
 
 
-# In[45]:
-
-# Misalkan ini adalah fitur yang digunakan untuk melatih StandardScaler
-feature_names = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
-
-input_data = (5,166,72,19,175,25.8,0.587,51)
-
-# Membuat DataFrame dari data input dengan nama fitur yang sama
-input_data_df = pd.DataFrame([input_data], columns=feature_names)
-
-# Sekarang, gunakan DataFrame ini untuk transformasi
-std_data = scaler.fit_transform(input_data_df)
-print(std_data)
-
-prediction = classifier.predict(std_data)
-print(prediction)
-
-if (prediction[0] == 0):
-  print('The person is not diabetic')
-else:
-  print('The person is diabetic')
-  
-  
 # In[]
 
 import streamlit as st
@@ -205,7 +182,7 @@ import streamlit as st
 feature_names = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
 
 # Ini adalah contoh nilai untuk setiap fitur
-example_values = [10,101,76,48,180,32.9,0.171,63,0]
+example_values = [10,101,76,48,180,32.9,0.171,63]
 
 # Minta input dari pengguna
 name = st.text_input("Please enter your name", "John Doe")
@@ -220,7 +197,7 @@ for feature, example in zip(feature_names, example_values):
 input_data_df = pd.DataFrame([input_data], columns=feature_names)
 
 # Sekarang, gunakan DataFrame ini untuk transformasi
-std_data = scaler.fit_transform(input_data_df)
+std_data = scaler.transform(input_data_df)
 
 prediction = classifier.predict(std_data)
 
