@@ -190,7 +190,7 @@ name = st.text_input("Masukkan Nama anda", "John Doe")
 
 # Minta pengguna memasukkan nilai untuk setiap fitur
 input_data = []
-for feature, example in zip(label_name, example_values):
+for feature, example in zip(feature_names, example_values):
     value = st.number_input(f'Masukan {feature} anda', value=example)
     input_data.append(value)
 
