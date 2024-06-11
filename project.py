@@ -204,9 +204,17 @@ import streamlit as st
 # Misalkan ini adalah fitur yang digunakan untuk melatih StandardScaler
 feature_names = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
 
+# Ini adalah contoh nilai untuk setiap fitur
+example_values = [6, 148, 72, 35, 0, 33.6, 0.627, 50]
+
 # Minta input dari pengguna
-name = st.text_input("Please enter your name")
-input_data = (5,166,72,19,175,25.8,0.587,51)  # Ini harus diganti dengan input pengguna
+name = st.text_input("Please enter your name", "John Doe")
+
+# Minta pengguna memasukkan nilai untuk setiap fitur
+input_data = []
+for feature, example in zip(feature_names, example_values):
+    value = st.number_input(f'Enter your {feature}', value=example)
+    input_data.append(value)
 
 # Membuat DataFrame dari data input dengan nama fitur yang sama
 input_data_df = pd.DataFrame([input_data], columns=feature_names)
