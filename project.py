@@ -185,12 +185,12 @@ feature_names = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'In
 example_values = [10, 180, 85, 35, 0, 35.0, 0.627, 60]
 
 # Minta input dari pengguna
-name = st.text_input("Please enter your name", "John Doe")
+name = st.text_input("Masukkan Nama anda", "John Doe")
 
 # Minta pengguna memasukkan nilai untuk setiap fitur
 input_data = []
 for feature, example in zip(feature_names, example_values):
-    value = st.number_input(f'Enter your {feature}', value=example)
+    value = st.number_input(f'Masukan nilai {feature} mu', value=example)
     input_data.append(value)
 
 # Membuat DataFrame dari data input dengan nama fitur yang sama
@@ -202,7 +202,7 @@ std_data = scaler.transform(input_data_df)
 prediction = classifier.predict(std_data)
 
 if (prediction[0] == 0):
-  st.write(f'{name} is not diabetic')
+  st.write(f'{name} tidak terkena diabetes')
 else:
-  st.write(f'{name} is diabetic')
+  st.write(f'{name} terkena diabetes')
 # %%
