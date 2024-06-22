@@ -59,9 +59,9 @@ if st.button('Enter'):
     prediction = classifier.predict(std_data)
     
     if prediction[0] == 0:
-    st.success(f'{name}, tidak diabetes')
+      st.success(f'{name}, tidak diabetes')
     else:
-    st.error(f'{name}, terdeteksi diabetes')
+      st.error(f'{name}, terdeteksi diabetes')
 
 
 
