@@ -51,15 +51,20 @@ for feature, example in zip(feature_names, example_values):
     value = st.number_input(f'Enter your {feature}', value=example)
     input_data.append(value)
 
-input_data_df = pd.DataFrame([input_data], columns=feature_names)
-std_data = scaler.transform(input_data_df)
-prediction = classifier.predict(std_data)
 
-# Display results
-if prediction[0] == 0:
+
+if st.button('Enter'):
+    input_data_df = pd.DataFrame([input_data], columns=feature_names)
+    std_data = scaler.transform(input_data_df)
+    prediction = classifier.predict(std_data)
+    
+    if prediction[0] == 0:
     st.success(f'{name}, tidak diabetes')
-else:
+    else:
     st.error(f'{name}, terdeteksi diabetes')
+
+
+
 
 # Display accuracy of the model
 st.write(f'akurasi data latih: {training_data_accuracy:.2f}')
